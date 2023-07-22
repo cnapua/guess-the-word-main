@@ -27,13 +27,11 @@ getWord();
 const placeholder = function (word) {
     const placeholderLetters = [];
     for (const letter of word) {
-        console.log(letter);
+        // console.log(letter);
         placeholderLetters.push("●");
     }
     wordInProgress.innerText = placeholderLetters.join("");
 };
-
-placeholder(word);
 
 guessLetterButton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -88,20 +86,20 @@ const showGuessedLetters = function () {
 };
 
 const updateWordInProgress = function (guessedLetters) {
-    const wordUpper =  word.toUpperCase();
+    const wordUpper = word.toUpperCase();
     const wordArray = wordUpper.split("");
     const revealWord = [];
-    for (const letter of wordArrag) {
-        if (guessedLetters.includes(letter)) {
-            revealWord.push(letter.toUpperCase());
-        } else {
-            revealWord.push("●");
-        }
+    for (const letter of wordArray) {
+      if (guessedLetters.includes(letter)) {
+        revealWord.push(letter.toUpperCase());
+      } else {
+        revealWord.push("●");
+      }
     }
     // console.log(revealWord);
-    workInProgress.innerText = revealWord.join("");
+    wordInProgress.innerText = revealWord.join("");
     checkIfWin();
-};
+  };
 
 const updateGuessesRemaining = function (guess) {
     const upperWord = word.toUpperCase();
